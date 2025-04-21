@@ -1,0 +1,2 @@
+C:/Users/Nil946/focusbridge_app/android/app/.cxx/Debug/82r37v1q/x86/CMakeFiles/edit_cache.dir
+C:/Users/Nil946/focusbridge_app/android/app/.cxx/Debug/82r37v1q/x86/CMakeFiles/rebuild_cache.dir

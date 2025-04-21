@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'screens/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,25 +8,33 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  Future<void> fetchData() async {
-    final response = await http.get(Uri.parse('http://127.0.0.1:8000/'));
-    print('Response status: ${response.statusCode}');
-    print('Response body: ${response.body}');
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: const Text('FocusBridge')),
-        body: Center(
-          child: ElevatedButton(
-            onPressed: fetchData,
-            child: const Text('Fetch API'),
+      title: 'FocusBridge',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
+        inputDecorationTheme: InputDecorationTheme(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          filled: true,
+          fillColor: Colors.grey[100],
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.indigo,
+            foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
           ),
         ),
       ),
+      home: const LoginScreen(),
     );
   }
 }
-
